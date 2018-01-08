@@ -30,7 +30,7 @@ class SyntaxSugarTraitTest extends TestCase
     public function testFindByMethodsShouldCallFindElement($methodPostfix, $expectedWebDriverByStrategy)
     {
         $wd = $this->trait->wd;
-        /** @var \PHPUnit_Framework_MockObject_MockObject $wd */
+        /** @var \PHPUnitFrameworkMockObjectMockObject $wd */
         $wd->expects($this->once())
             ->method('findElement')
             ->with(WebDriverBy::$expectedWebDriverByStrategy('foobar'));
@@ -48,7 +48,7 @@ class SyntaxSugarTraitTest extends TestCase
     public function testFindMultipleByMethodsShouldCallFindElements($methodPostfix, $expectedWebDriverByStrategy)
     {
         $wd = $this->trait->wd;
-        /** @var \PHPUnit_Framework_MockObject_MockObject $wd */
+        /** @var \PHPUnitFrameworkMockObjectMockObject $wd */
         $wd->expects($this->once())
             ->method('findElements')
             ->with(WebDriverBy::$expectedWebDriverByStrategy('foobar'));
@@ -86,7 +86,7 @@ class SyntaxSugarTraitTest extends TestCase
      */
     public function testWaitForMethodsShouldWaitUntilWebDriverExpectedCondition($method, $isElementMethod = true)
     {
-        /** @var WebDriverWait|\PHPUnit_Framework_MockObject_MockObject $waitMock */
+        /** @var WebDriverWait|\PHPUnitFrameworkMockObjectMockObject $waitMock */
         $waitMock = $this->getMockBuilder(WebDriverWait::class)
             ->disableOriginalConstructor()
             ->getMock();

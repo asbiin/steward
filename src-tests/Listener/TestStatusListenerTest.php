@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class TestStatusListenerTest extends TestCase
 {
-    /** @var SeleniumServerAdapter|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var SeleniumServerAdapter|\PHPUnitFrameworkMockObjectMockObject */
     protected $seleniumAdapterMock;
 
     public function setUp()
@@ -33,7 +33,7 @@ class TestStatusListenerTest extends TestCase
 
         $listener = new TestStatusListener($publishers, $this->seleniumAdapterMock);
 
-        $warningTestCase = new \PHPUnit_Framework_WarningTestCase('Warning');
+        $warningTestCase = new \PHPUnitFrameworkWarningTestCase('Warning');
 
         $listener->startTest($warningTestCase);
         $listener->endTest($warningTestCase, 1);

@@ -24,7 +24,7 @@ class XdebugListenerTest extends TestCase
 {
     use PHPMock;
 
-    /** @var XdebugListener|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var XdebugListener|\PHPUnitFrameworkMockObjectMockObject */
     protected $listener;
 
     protected function setUp()

@@ -49,7 +49,7 @@ class SnapshotListenerTest extends TestCase
             $testcaseName
         );
 
-        /** @var RemoteWebDriver|\PHPUnit_Framework_MockObject_MockObject $webDriver */
+        /** @var RemoteWebDriver|\PHPUnitFrameworkMockObjectMockObject $webDriver */
         $webDriver = $this->createMock(RemoteWebDriver::class);
         $webDriver->expects($this->once())
             ->method('getCurrentURL')
@@ -94,7 +94,7 @@ class SnapshotListenerTest extends TestCase
     public function provideBasicTestEvent()
     {
         $dummyException = new \Exception('Error exception', 333);
-        $dummyFailureException = new \PHPUnit_Framework_AssertionFailedError('Failure exception');
+        $dummyFailureException = new \PHPUnitFrameworkAssertionFailedError('Failure exception');
 
         return [
             ['addError', $dummyException, 'FooBarTest', 'testFooBar', '', [], 'FooBarTest-testFooBar'],
@@ -133,11 +133,11 @@ class SnapshotListenerTest extends TestCase
 
     public function testShouldNotTakeSnapshotIfTestIsNotStewardAbstractTestCase()
     {
-        $test = new \PHPUnit_Framework_WarningTestCase('foo');
+        $test = new \PHPUnitFrameworkWarningTestCase('foo');
 
         $listener = new SnapshotListener();
         $listener->addError($test, new \Exception('Error', 333), 3.3);
-        $listener->addFailure($test, new \PHPUnit_Framework_AssertionFailedError('Failure'), 3.3);
+        $listener->addFailure($test, new \PHPUnitFrameworkAssertionFailedError('Failure'), 3.3);
 
         $this->assertEmpty($test->getActualOutput());
     }
@@ -158,7 +158,7 @@ class SnapshotListenerTest extends TestCase
         /** @var AbstractTestCase $test */
         $test = $this->getMockForAbstractClass(AbstractTestCase::class, ['testFooBar'], 'FooBarTest');
 
-        /** @var RemoteWebDriver|\PHPUnit_Framework_MockObject_MockObject $webDriver */
+        /** @var RemoteWebDriver|\PHPUnitFrameworkMockObjectMockObject $webDriver */
         $webDriver = $this->createMock(RemoteWebDriver::class);
         $webDriver->expects($this->once())
             ->method('getCurrentURL')

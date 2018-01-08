@@ -26,7 +26,7 @@ abstract class AbstractCloudPublisher extends AbstractPublisher
     public function publishResult(
         $testCaseName,
         $testName,
-        \PHPUnit_Framework_Test $testInstance,
+        \PHPUnit\Framework\Test $testInstance,
         $status,
         $result = null,
         $message = null

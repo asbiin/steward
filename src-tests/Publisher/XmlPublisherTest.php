@@ -14,7 +14,7 @@ class XmlPublisherTest extends TestCase
 
     /** @var XmlPublisher */
     protected $publisher;
-    /** @var \PHPUnit_Framework_MockObject_MockObject|\PHPUnit_Framework_Test */
+    /** @var \PHPUnitFrameworkMockObjectMockObject|\PHPUnitFrameworkTest */
     protected $testInstanceMock;
 
     public function setUp()
@@ -25,7 +25,7 @@ class XmlPublisherTest extends TestCase
         ConfigHelper::unsetConfigInstance();
 
         $this->publisher = new XmlPublisher();
-        $this->testInstanceMock = $this->getMockBuilder(\PHPUnit_Framework_Test::class)
+        $this->testInstanceMock = $this->getMockBuilder(\PHPUnitFrameworkTest::class)
             ->getMock();
     }
 

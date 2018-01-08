@@ -41,11 +41,11 @@ abstract class AbstractPublisher
 
     /** @var array Map of PHPUnit test results constants to our tests results */
     public static $testResultsMap = [
-        \PHPUnit_Runner_BaseTestRunner::STATUS_PASSED => self::TEST_RESULT_PASSED,
-        \PHPUnit_Runner_BaseTestRunner::STATUS_SKIPPED => self::TEST_RESULT_SKIPPED,
-        \PHPUnit_Runner_BaseTestRunner::STATUS_INCOMPLETE => self::TEST_RESULT_INCOMPLETE,
-        \PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE => self::TEST_RESULT_FAILED,
-        \PHPUnit_Runner_BaseTestRunner::STATUS_ERROR => self::TEST_RESULT_BROKEN,
+        \PHPUnit\Runner\BaseTestRunner::STATUS_PASSED => self::TEST_RESULT_PASSED,
+        \PHPUnit\Runner\BaseTestRunner::STATUS_SKIPPED => self::TEST_RESULT_SKIPPED,
+        \PHPUnit\Runner\BaseTestRunner::STATUS_INCOMPLETE => self::TEST_RESULT_INCOMPLETE,
+        \PHPUnit\Runner\BaseTestRunner::STATUS_FAILURE => self::TEST_RESULT_FAILED,
+        \PHPUnit\Runner\BaseTestRunner::STATUS_ERROR => self::TEST_RESULT_BROKEN,
     ];
 
     /**
@@ -70,7 +70,7 @@ abstract class AbstractPublisher
      *
      * @param string $testCaseName
      * @param string $testName
-     * @param \PHPUnit_Framework_Test $testInstance
+     * @param \PHPUnit\Framework\Test $testInstance
      * @param string $status One of self::$testStatuses
      * @param string $result One of self::$testResults
      * @param string $message
@@ -78,7 +78,7 @@ abstract class AbstractPublisher
     abstract public function publishResult(
         $testCaseName,
         $testName,
-        \PHPUnit_Framework_Test $testInstance,
+        \PHPUnit\Framework\Test $testInstance,
         $status,
         $result = null,
         $message = null

@@ -27,17 +27,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class ProcessSetCreatorTest extends TestCase
 {
-    /** @var EventDispatcher|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var EventDispatcher|\PHPUnitFrameworkMockObjectMockObject */
     protected $dispatcherMock;
-    /** @var RunCommand|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var RunCommand|\PHPUnitFrameworkMockObjectMockObject */
     protected $command;
-    /** @var InputInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var InputInterface|\PHPUnitFrameworkMockObjectMockObject */
     protected $input;
     /** @var BufferedOutput */
     protected $bufferedOutput;
     /** @var ProcessSetCreator */
     protected $creator;
-    /** @var AbstractPublisher|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var AbstractPublisher|\PHPUnitFrameworkMockObjectMockObject */
     protected $publisherMock;
 
     // Fully classified names of dummy tests

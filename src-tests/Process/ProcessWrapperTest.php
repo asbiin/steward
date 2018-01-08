@@ -124,11 +124,11 @@ class ProcessWrapperTest extends TestCase
     {
         return [
             // $exitCode, $expectedResult
-            'Testcase succeeded' => [\PHPUnit_TextUI_TestRunner::SUCCESS_EXIT, ProcessWrapper::PROCESS_RESULT_PASSED],
+            'Testcase succeeded' => [\PHPUnitTextUITestRunner::SUCCESS_EXIT, ProcessWrapper::PROCESS_RESULT_PASSED],
             'Exception thrown from PHPUnit' =>
-                [\PHPUnit_TextUI_TestRunner::EXCEPTION_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
+                [\PHPUnitTextUITestRunner::EXCEPTION_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
             'Some test failed' =>
-                [\PHPUnit_TextUI_TestRunner::FAILURE_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
+                [\PHPUnitTextUITestRunner::FAILURE_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
             'PHP fatal error' => [255, ProcessWrapper::PROCESS_RESULT_FATAL],
             'Process was killed' => [9, ProcessWrapper::PROCESS_RESULT_FATAL],
             'Process was terminated' => [9, ProcessWrapper::PROCESS_RESULT_FATAL],

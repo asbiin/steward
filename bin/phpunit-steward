@@ -13,4 +13,4 @@ requireIfExists(__DIR__ . '/../vendor/autoload.php') || requireIfExists(__DIR__ 
 
 date_default_timezone_set('Europe/Prague');
 
-PHPUnit_TextUI_Command::main();
+PHPUnit\TextUI\Command::main();

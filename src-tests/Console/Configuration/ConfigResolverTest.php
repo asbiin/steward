@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * @covers \Lmc\Steward\Console\Configuration\ConfigResolver
  */
-class ConfigResolverTest extends \PHPUnit_Framework_TestCase
+class ConfigResolverTest extends \PHPUnitFrameworkTestCase
 {
     public function testShouldResolveDefaultGeneralOptions()
     {

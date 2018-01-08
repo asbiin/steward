@@ -14,14 +14,14 @@ use PHPUnit\Framework\BaseTestListener;
  */
 class SnapshotListener extends BaseTestListener
 {
-    public function addError(\PHPUnit_Framework_Test $test, \Exception $e, $time)
+    public function addError(\PHPUnit\Framework\Test $test, \Exception $e, $time)
     {
         if ($test instanceof AbstractTestCase) {
             $this->takeSnapshot($test);
         }
     }
 
-    public function addFailure(\PHPUnit_Framework_Test $test, \PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $e, $time)
     {
         if ($test instanceof AbstractTestCase) {
             $this->takeSnapshot($test);

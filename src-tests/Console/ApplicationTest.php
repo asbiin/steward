@@ -2,7 +2,7 @@
 
 namespace Lmc\Steward\Console;
 
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends \PHPUnitFrameworkTestCase
 {
     public function testShouldAddCustomInputDefinition()
     {

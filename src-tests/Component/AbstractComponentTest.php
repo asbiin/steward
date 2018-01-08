@@ -61,7 +61,7 @@ class AbstractComponentTest extends TestCase
 
     public function testShouldFailIfNotExistingMethodIsCalled()
     {
-        $this->expectException(\PHPUnit_Framework_Error::class);
+        $this->expectException(\PHPUnitFrameworkrror::class);
         $this->expectExceptionMessage(
             'Call to undefined method Lmc\Steward\Component\AbstractComponent::notExisting()'
         );

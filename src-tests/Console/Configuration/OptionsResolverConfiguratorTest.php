@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * @covers \Lmc\Steward\Console\Configuration\OptionsResolverConfigurator
  */
-class OptionsResolverConfiguratorTest extends \PHPUnit_Framework_TestCase
+class OptionsResolverConfiguratorTest extends \PHPUnitFrameworkTestCase
 {
     public function testShouldConfigureGivenOptionsResolver()
     {

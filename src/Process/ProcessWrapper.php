@@ -215,7 +215,7 @@ class ProcessWrapper
         }
 
         switch ($exitCode) {
-            case \PHPUnit_TextUI_TestRunner::SUCCESS_EXIT: // all tests passed
+            case \PHPUnit\TextUI\TestRunner::SUCCESS_EXIT: // all tests passed
                 $result = self::PROCESS_RESULT_PASSED;
                 // for passed process save just the status and result; end time was saved by TestStatusListener
                 break;
@@ -226,8 +226,8 @@ class ProcessWrapper
             case 255: // PHP fatal error
                 $result = self::PROCESS_RESULT_FATAL;
                 break;
-            case \PHPUnit_TextUI_TestRunner::EXCEPTION_EXIT: // exception thrown from phpunit
-            case \PHPUnit_TextUI_TestRunner::FAILURE_EXIT: // some test failed
+            case \PHPUnit\TextUI\TestRunner::EXCEPTION_EXIT: // exception thrown from phpunit
+            case \PHPUnit\TextUI\TestRunner::FAILURE_EXIT: // some test failed
             default:
                 $result = self::PROCESS_RESULT_FAILED;
                 break;

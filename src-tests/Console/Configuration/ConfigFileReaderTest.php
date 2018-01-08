@@ -7,7 +7,7 @@ use Assert\InvalidArgumentException;
 /**
  * @covers \Lmc\Steward\Console\Configuration\ConfigFileReader
  */
-class ConfigFileReaderTest extends \PHPUnit_Framework_TestCase
+class ConfigFileReaderTest extends \PHPUnitFrameworkTestCase
 {
     /**
      * @dataProvider providePathToConfigFile

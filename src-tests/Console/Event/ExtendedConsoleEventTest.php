@@ -8,11 +8,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ExtendedConsoleEventTest extends BasicConsoleEventTest
 {
-    /** @var InputInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var InputInterface|\PHPUnitFrameworkMockObjectMockObject */
     protected $inputMock;
-    /** @var OutputInterface|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var OutputInterface|\PHPUnitFrameworkMockObjectMockObject */
     protected $outputMock;
-    /** @var Command|\PHPUnit_Framework_MockObject_MockObject */
+    /** @var Command|\PHPUnitFrameworkMockObjectMockObject */
     protected $commandMock;
 
     protected function setUp()

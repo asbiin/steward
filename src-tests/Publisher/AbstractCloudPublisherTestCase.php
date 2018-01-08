@@ -14,7 +14,7 @@ abstract class AbstractCloudPublisherTestCase extends TestCase
 
     /** @var AbstractCloudPublisher */
     protected $publisher;
-    /** @var \PHPUnit_Framework_MockObject_MockObject|AbstractTestCaseBase */
+    /** @var \PHPUnitFrameworkMockObjectMockObject|AbstractTestCaseBase */
     protected $testInstanceMock;
 
     public function setUp()

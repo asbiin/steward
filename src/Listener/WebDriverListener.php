@@ -49,9 +49,9 @@ class WebDriverListener extends BaseTestListener
         return $this->capabilitiesResolver;
     }
 
-    public function startTest(\PHPUnit_Framework_Test $test)
+    public function startTest(\PHPUnit\Framework\Test $test)
     {
-        if ($test instanceof \PHPUnit_Framework_WarningTestCase) {
+        if ($test instanceof \PHPUnit\Framework\WarningTestCase) {
             return;
         }
 
@@ -100,9 +100,9 @@ class WebDriverListener extends BaseTestListener
         );
     }
 
-    public function endTest(\PHPUnit_Framework_Test $test, $time)
+    public function endTest(\PHPUnit\Framework\Test $test, $time)
     {
-        if ($test instanceof \PHPUnit_Framework_WarningTestCase) {
+        if ($test instanceof \PHPUnit\Framework\WarningTestCase) {
             return;
         }
 
