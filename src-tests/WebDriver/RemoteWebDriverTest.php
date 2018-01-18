@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class RemoteWebDriverTest extends TestCase
 {
-    /** @var RemoteWebDriver|\PHPUnitFrameworkMockObjectMockObject */
+    /** @var RemoteWebDriver|\PHPUnit_Framework_MockObject_MockObject */
     protected $driver;
 
     public function setUp()

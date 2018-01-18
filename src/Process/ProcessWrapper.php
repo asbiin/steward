@@ -8,6 +8,11 @@ use Lmc\Steward\Publisher\AbstractPublisher;
 use Symfony\Component\Process\Exception\ProcessTimedOutException;
 use Symfony\Component\Process\Process;
 
+if (!class_exists('\PHPUnit_TextUI_TestRunner') &&
+    class_exists('\PHPUnit\TextUI\TestRunner')) {
+    class_alias('\PHPUnit\TextUI\TestRunner', '\PHPUnit_TextUI_TestRunner');
+}
+
 /**
  * Wrapper for PHPUnit processes adding some metadata and custom logic
  */
@@ -215,7 +220,7 @@ class ProcessWrapper
         }
 
         switch ($exitCode) {
-            case \PHPUnit\TextUI\TestRunner::SUCCESS_EXIT: // all tests passed
+            case \PHPUnit_TextUI_TestRunner::SUCCESS_EXIT: // all tests passed
                 $result = self::PROCESS_RESULT_PASSED;
                 // for passed process save just the status and result; end time was saved by TestStatusListener
                 break;
@@ -226,8 +231,8 @@ class ProcessWrapper
             case 255: // PHP fatal error
                 $result = self::PROCESS_RESULT_FATAL;
                 break;
-            case \PHPUnit\TextUI\TestRunner::EXCEPTION_EXIT: // exception thrown from phpunit
-            case \PHPUnit\TextUI\TestRunner::FAILURE_EXIT: // some test failed
+            case \PHPUnit_TextUI_TestRunner::EXCEPTION_EXIT: // exception thrown from phpunit
+            case \PHPUnit_TextUI_TestRunner::FAILURE_EXIT: // some test failed
             default:
                 $result = self::PROCESS_RESULT_FAILED;
                 break;

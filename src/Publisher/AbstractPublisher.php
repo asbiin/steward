@@ -2,6 +2,11 @@
 
 namespace Lmc\Steward\Publisher;
 
+if (!class_exists('\PHPUnit_Runner_BaseTestRunner') &&
+    class_exists('\PHPUnit\Runner\BaseTestRunner')) {
+    class_alias('\PHPUnit\Runner\BaseTestRunner', '\PHPUnit_Runner_BaseTestRunner');
+}
+
 /**
  * Abstract test results publisher could be extended and used for reporting test results into some custom system.
  * Any ancestor class must be registered to TestStatusListener (using phpunit.xml).
@@ -41,11 +46,11 @@ abstract class AbstractPublisher
 
     /** @var array Map of PHPUnit test results constants to our tests results */
     public static $testResultsMap = [
-        \PHPUnit\Runner\BaseTestRunner::STATUS_PASSED => self::TEST_RESULT_PASSED,
-        \PHPUnit\Runner\BaseTestRunner::STATUS_SKIPPED => self::TEST_RESULT_SKIPPED,
-        \PHPUnit\Runner\BaseTestRunner::STATUS_INCOMPLETE => self::TEST_RESULT_INCOMPLETE,
-        \PHPUnit\Runner\BaseTestRunner::STATUS_FAILURE => self::TEST_RESULT_FAILED,
-        \PHPUnit\Runner\BaseTestRunner::STATUS_ERROR => self::TEST_RESULT_BROKEN,
+        \PHPUnit_Runner_BaseTestRunner::STATUS_PASSED => self::TEST_RESULT_PASSED,
+        \PHPUnit_Runner_BaseTestRunner::STATUS_SKIPPED => self::TEST_RESULT_SKIPPED,
+        \PHPUnit_Runner_BaseTestRunner::STATUS_INCOMPLETE => self::TEST_RESULT_INCOMPLETE,
+        \PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE => self::TEST_RESULT_FAILED,
+        \PHPUnit_Runner_BaseTestRunner::STATUS_ERROR => self::TEST_RESULT_BROKEN,
     ];
 
     /**

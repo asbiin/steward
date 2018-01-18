@@ -3,11 +3,12 @@
 namespace Lmc\Steward\Console\Configuration;
 
 use Assert\InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Lmc\Steward\Console\Configuration\ConfigFileReader
  */
-class ConfigFileReaderTest extends \PHPUnitFrameworkTestCase
+class ConfigFileReaderTest extends TestCase
 {
     /**
      * @dataProvider providePathToConfigFile

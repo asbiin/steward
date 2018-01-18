@@ -18,7 +18,7 @@ class DummyPublisher extends AbstractPublisher
     public function publishResult(
         $testCaseName,
         $testName,
-        \PHPUnitFrameworkTest $testInstance,
+        \PHPUnit\Framework\Test $testInstance,
         $status,
         $result = null,
         $message = null

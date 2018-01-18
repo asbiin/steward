@@ -8,6 +8,11 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Process\Exception\ProcessTimedOutException;
 use Symfony\Component\Process\Process;
 
+if (!class_exists('\PHPUnit_TextUI_TestRunner') &&
+    class_exists('\PHPUnit\TextUI\TestRunner')) {
+    class_alias('\PHPUnit\TextUI\TestRunner', '\PHPUnit_TextUI_TestRunner');
+}
+
 class ProcessWrapperTest extends TestCase
 {
     public function testShouldWrapGivenProcess()
@@ -124,11 +129,11 @@ class ProcessWrapperTest extends TestCase
     {
         return [
             // $exitCode, $expectedResult
-            'Testcase succeeded' => [\PHPUnitTextUITestRunner::SUCCESS_EXIT, ProcessWrapper::PROCESS_RESULT_PASSED],
+            'Testcase succeeded' => [\PHPUnit_TextUI_TestRunner::SUCCESS_EXIT, ProcessWrapper::PROCESS_RESULT_PASSED],
             'Exception thrown from PHPUnit' =>
-                [\PHPUnitTextUITestRunner::EXCEPTION_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
+                [\PHPUnit_TextUI_TestRunner::EXCEPTION_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
             'Some test failed' =>
-                [\PHPUnitTextUITestRunner::FAILURE_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
+                [\PHPUnit_TextUI_TestRunner::FAILURE_EXIT, ProcessWrapper::PROCESS_RESULT_FAILED],
             'PHP fatal error' => [255, ProcessWrapper::PROCESS_RESULT_FATAL],
             'Process was killed' => [9, ProcessWrapper::PROCESS_RESULT_FATAL],
             'Process was terminated' => [9, ProcessWrapper::PROCESS_RESULT_FATAL],

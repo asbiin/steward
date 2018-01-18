@@ -2,7 +2,9 @@
 
 namespace Lmc\Steward\Console;
 
-class ApplicationTest extends \PHPUnitFrameworkTestCase
+use PHPUnit\Framework\TestCase;
+
+class ApplicationTest extends TestCase
 {
     public function testShouldAddCustomInputDefinition()
     {

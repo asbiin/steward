@@ -9,19 +9,28 @@ use Lmc\Steward\Test\AbstractTestCase;
 use Lmc\Steward\Utils\Strings;
 use PHPUnit\Framework\BaseTestListener;
 
+if (!class_exists('\PHPUnit_Framework_Test') &&
+    class_exists('\PHPUnit\Framework\Test')) {
+    class_alias('\PHPUnit\Framework\Test', '\PHPUnit_Framework_Test');
+}
+if (!class_exists('\PHPUnit_Framework_AssertionFailedError') &&
+    class_exists('\PHPUnit\Framework\AssertionFailedError')) {
+    class_alias('\PHPUnit\Framework\AssertionFailedError', '\PHPUnit_Framework_AssertionFailedError');
+}
+
 /**
  * Listener to take snapshots of the page (screenshot and html snapshot) on each error or failure.
  */
 class SnapshotListener extends BaseTestListener
 {
-    public function addError(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addError(\PHPUnit_Framework_Test $test, \Exception $e, $time)
     {
         if ($test instanceof AbstractTestCase) {
             $this->takeSnapshot($test);
         }
     }
 
-    public function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $e, $time)
+    public function addFailure(\PHPUnit_Framework_Test $test, \PHPUnit_Framework_AssertionFailedError $e, $time)
     {
         if ($test instanceof AbstractTestCase) {
             $this->takeSnapshot($test);

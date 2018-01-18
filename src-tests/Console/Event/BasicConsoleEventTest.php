@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class BasicConsoleEventTest extends TestCase
 {
-    /** @var Command|\PHPUnitFrameworkMockObjectMockObject */
+    /** @var Command|\PHPUnit_Framework_MockObject_MockObject */
     protected $commandMock;
 
     protected function setUp()

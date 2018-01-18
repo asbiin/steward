@@ -43,7 +43,7 @@ class GenerateTimelineCommandTest extends TestCase
 
     public function testShouldOutputHtmlFileWithJsonData()
     {
-        /** @var \PHPUnitFrameworkMockObjectMockObject|Filesystem $filesystemMock */
+        /** @var \PHPUnit_Framework_MockObject_MockObject|Filesystem $filesystemMock */
         $filesystemMock = $this->createMock(Filesystem::class);
         $filesystemMock->expects($this->once())
             ->method('dumpFile')

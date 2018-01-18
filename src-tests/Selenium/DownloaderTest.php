@@ -178,7 +178,7 @@ class DownloaderTest extends TestCase
     public function testShouldStoreDownloadedFileToExpectedLocation()
     {
         // Mock getFileUrl() method to return URL to fixtures on filesystem
-        /** @var Downloader|\PHPUnitFrameworkMockObjectMockObject $downloader */
+        /** @var Downloader|\PHPUnit_Framework_MockObject_MockObject $downloader */
         $downloader = $this->getMockBuilder(Downloader::class)
             ->setConstructorArgs([__DIR__ . '/Fixtures'])
             ->setMethods(['getFileUrl'])
@@ -231,7 +231,7 @@ class DownloaderTest extends TestCase
             'Directory already exists, though it should be created only by the test'
         );
 
-        /** @var Downloader|\PHPUnitFrameworkMockObjectMockObject $downloader */
+        /** @var Downloader|\PHPUnit_Framework_MockObject_MockObject $downloader */
         $downloader = $this->getMockBuilder(Downloader::class)
             ->setConstructorArgs([$expectedDirectory])
             ->setMethods(['getFileUrl'])

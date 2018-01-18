@@ -389,7 +389,7 @@ class RunCommandTest extends TestCase
     /**
      * Mock Selenium adapter as if connection is OK
      *
-     * @return SeleniumServerAdapter|\PHPUnitFrameworkMockObjectMockObject
+     * @return SeleniumServerAdapter|\PHPUnit_Framework_MockObject_MockObject
      */
     protected function getSeleniumAdapterMock()
     {

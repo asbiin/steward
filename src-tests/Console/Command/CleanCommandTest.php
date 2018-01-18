@@ -45,7 +45,7 @@ class CleanCommandTest extends TestCase
 
     public function testShouldCreateLogsDirectoryIfDefaultPathIsUsed()
     {
-        /** @var \PHPUnitFrameworkMockObjectMockObject|Filesystem $filesystemMock */
+        /** @var \PHPUnit_Framework_MockObject_MockObject|Filesystem $filesystemMock */
         $filesystemMock = $this->getMockBuilder(Filesystem::class)
             ->setMethods(['exists', 'mkdir'])
             ->getMock();

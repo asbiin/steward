@@ -11,6 +11,23 @@ use Lmc\Steward\Publisher\XmlPublisher;
 use Lmc\Steward\Selenium\SeleniumServerAdapter;
 use PHPUnit\Framework\BaseTestListener;
 
+if (!class_exists('\PHPUnit_Framework_WarningTestCase') &&
+    class_exists('\PHPUnit\Framework\WarningTestCase')) {
+    class_alias('\PHPUnit\Framework\WarningTestCase', '\PHPUnit_Framework_WarningTestCase');
+}
+if (!class_exists('\PHPUnit_Framework_TestSuite_DataProvider') &&
+    class_exists('\PHPUnit\Framework\TestSuite\DataProvider')) {
+    class_alias('\PHPUnit\Framework\TestSuite\DataProvider', '\PHPUnit_Framework_TestSuite_DataProvider');
+}
+if (!class_exists('\PHPUnit_Framework_TestSuite') &&
+    class_exists('\PHPUnit\Framework\TestSuite')) {
+    class_alias('\PHPUnit\Framework\TestSuite', '\PHPUnit_Framework_TestSuite');
+}
+if (!class_exists('\PHPUnit_Framework_Test') &&
+    class_exists('\PHPUnit\Framework\Test')) {
+    class_alias('\PHPUnit\Framework\Test', '\PHPUnit_Framework_Test');
+}
+
 /**
  * Listener to log status of test case and at the end of suite publish them using registered publishers.
  */
@@ -69,14 +86,14 @@ class TestStatusListener extends BaseTestListener
         }
     }
 
-    public function startTestSuite(\PHPUnit\Framework\TestSuite $suite)
+    public function startTestSuite(\PHPUnit_Framework_TestSuite $suite)
     {
         $this->startDate = new \DateTimeImmutable();
     }
 
-    public function startTest(\PHPUnit\Framework\Test $test)
+    public function startTest(\PHPUnit_Framework_Test $test)
     {
-        if (!$test instanceof \PHPUnit\Framework\TestCase || $test instanceof \PHPUnit\Framework\WarningTestCase) {
+        if (!$test instanceof \PHPUnit\Framework\TestCase || $test instanceof \PHPUnit_Framework_WarningTestCase) {
             return;
         }
 
@@ -100,9 +117,9 @@ class TestStatusListener extends BaseTestListener
         }
     }
 
-    public function endTest(\PHPUnit\Framework\Test $test, $time)
+    public function endTest(\PHPUnit_Framework_Test $test, $time)
     {
-        if (!$test instanceof \PHPUnit\Framework\TestCase || $test instanceof \PHPUnit\Framework\WarningTestCase) {
+        if (!$test instanceof \PHPUnit\Framework\TestCase || $test instanceof \PHPUnit_Framework_WarningTestCase) {
             return;
         }
 
@@ -128,9 +145,9 @@ class TestStatusListener extends BaseTestListener
         }
     }
 
-    public function endTestSuite(\PHPUnit\Framework\TestSuite $suite)
+    public function endTestSuite(\PHPUnit_Framework_TestSuite $suite)
     {
-        if ($suite instanceof \PHPUnit\Framework\TestSuite_DataProvider) {
+        if ($suite instanceof \PHPUnit_Framework_TestSuite_DataProvider) {
             return;
         }
 

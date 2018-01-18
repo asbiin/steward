@@ -13,4 +13,9 @@ requireIfExists(__DIR__ . '/../vendor/autoload.php') || requireIfExists(__DIR__ 
 
 date_default_timezone_set('Europe/Prague');
 
-PHPUnit\TextUI\Command::main();
+if (!class_exists('PHPUnit_TextUI_Command') &&
+    class_exists('PHPUnit\TextUI\Command')) {
+    class_alias('PHPUnit\TextUI\Command', '\PHPUnit_TextUI_Command');
+}
+
+PHPUnit_TextUI_Command::main();

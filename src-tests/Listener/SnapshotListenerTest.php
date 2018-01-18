@@ -9,6 +9,11 @@ use Lmc\Steward\WebDriver\RemoteWebDriver;
 use phpmock\phpunit\PHPMock;
 use PHPUnit\Framework\TestCase;
 
+if (!class_exists('\PHPUnit_Framework_WarningTestCase') &&
+    class_exists('\PHPUnit\Framework\WarningTestCase')) {
+    class_alias('\PHPUnit\Framework\WarningTestCase', '\PHPUnit_Framework_WarningTestCase');
+}
+
 /**
  * @covers Lmc\Steward\Listener\SnapshotListener
  */
@@ -49,7 +54,7 @@ class SnapshotListenerTest extends TestCase
             $testcaseName
         );
 
-        /** @var RemoteWebDriver|\PHPUnitFrameworkMockObjectMockObject $webDriver */
+        /** @var RemoteWebDriver|\PHPUnit_Framework_MockObject_MockObject $webDriver */
         $webDriver = $this->createMock(RemoteWebDriver::class);
         $webDriver->expects($this->once())
             ->method('getCurrentURL')
@@ -94,7 +99,7 @@ class SnapshotListenerTest extends TestCase
     public function provideBasicTestEvent()
     {
         $dummyException = new \Exception('Error exception', 333);
-        $dummyFailureException = new \PHPUnitFrameworkAssertionFailedError('Failure exception');
+        $dummyFailureException = new \PHPUnit\Framework\AssertionFailedError('Failure exception');
 
         return [
             ['addError', $dummyException, 'FooBarTest', 'testFooBar', '', [], 'FooBarTest-testFooBar'],
@@ -133,11 +138,11 @@ class SnapshotListenerTest extends TestCase
 
     public function testShouldNotTakeSnapshotIfTestIsNotStewardAbstractTestCase()
     {
-        $test = new \PHPUnitFrameworkWarningTestCase('foo');
+        $test = new \PHPUnit_Framework_WarningTestCase('foo');
 
         $listener = new SnapshotListener();
         $listener->addError($test, new \Exception('Error', 333), 3.3);
-        $listener->addFailure($test, new \PHPUnitFrameworkAssertionFailedError('Failure'), 3.3);
+        $listener->addFailure($test, new \PHPUnit\Framework\AssertionFailedError('Failure'), 3.3);
 
         $this->assertEmpty($test->getActualOutput());
     }
@@ -158,7 +163,7 @@ class SnapshotListenerTest extends TestCase
         /** @var AbstractTestCase $test */
         $test = $this->getMockForAbstractClass(AbstractTestCase::class, ['testFooBar'], 'FooBarTest');
 
-        /** @var RemoteWebDriver|\PHPUnitFrameworkMockObjectMockObject $webDriver */
+        /** @var RemoteWebDriver|\PHPUnit_Framework_MockObject_MockObject $webDriver */
         $webDriver = $this->createMock(RemoteWebDriver::class);
         $webDriver->expects($this->once())
             ->method('getCurrentURL')

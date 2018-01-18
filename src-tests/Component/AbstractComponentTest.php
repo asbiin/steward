@@ -7,6 +7,11 @@ use Lmc\Steward\ConfigHelper;
 use Lmc\Steward\Test\AbstractTestCase;
 use PHPUnit\Framework\TestCase;
 
+if (!class_exists('\PHPUnit_Framework_Error') &&
+    class_exists('\PHPUnit\Framework\Error\Error')) {
+    class_alias('\PHPUnit\Framework\Error\Error', '\PHPUnit_Framework_Error');
+}
+
 class AbstractComponentTest extends TestCase
 {
     /** @var AbstractTestCase */
@@ -61,7 +66,7 @@ class AbstractComponentTest extends TestCase
 
     public function testShouldFailIfNotExistingMethodIsCalled()
     {
-        $this->expectException(\PHPUnitFrameworkrror::class);
+        $this->expectException(\PHPUnit_Framework_Error::class);
         $this->expectExceptionMessage(
             'Call to undefined method Lmc\Steward\Component\AbstractComponent::notExisting()'
         );

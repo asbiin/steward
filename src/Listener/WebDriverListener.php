@@ -15,6 +15,11 @@ use Lmc\Steward\WebDriver\RemoteWebDriver;
 use Nette\Reflection\AnnotationsParser;
 use PHPUnit\Framework\BaseTestListener;
 
+if (!class_exists('\PHPUnit_Framework_WarningTestCase') &&
+    class_exists('\PHPUnit\Framework\WarningTestCase')) {
+    class_alias('\PHPUnit\Framework\WarningTestCase', '\PHPUnit_Framework_WarningTestCase');
+}
+
 /**
  * Listener for initialization and destruction of WebDriver before and after each test.
  *
@@ -51,7 +56,7 @@ class WebDriverListener extends BaseTestListener
 
     public function startTest(\PHPUnit\Framework\Test $test)
     {
-        if ($test instanceof \PHPUnit\Framework\WarningTestCase) {
+        if ($test instanceof \PHPUnit_Framework_WarningTestCase) {
             return;
         }
 
@@ -102,7 +107,7 @@ class WebDriverListener extends BaseTestListener
 
     public function endTest(\PHPUnit\Framework\Test $test, $time)
     {
-        if ($test instanceof \PHPUnit\Framework\WarningTestCase) {
+        if ($test instanceof \PHPUnit_Framework_WarningTestCase) {
             return;
         }
 

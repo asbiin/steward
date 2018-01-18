@@ -10,9 +10,14 @@ use Lmc\Steward\Publisher\TestingBotPublisher;
 use Lmc\Steward\Selenium\SeleniumServerAdapter;
 use PHPUnit\Framework\TestCase;
 
+if (!class_exists('\PHPUnit_Framework_WarningTestCase') &&
+    class_exists('\PHPUnit\Framework\WarningTestCase')) {
+    class_alias('\PHPUnit\Framework\WarningTestCase', '\PHPUnit_Framework_WarningTestCase');
+}
+
 class TestStatusListenerTest extends TestCase
 {
-    /** @var SeleniumServerAdapter|\PHPUnitFrameworkMockObjectMockObject */
+    /** @var SeleniumServerAdapter|\PHPUnit_Framework_MockObject_MockObject */
     protected $seleniumAdapterMock;
 
     public function setUp()
@@ -33,7 +38,7 @@ class TestStatusListenerTest extends TestCase
 
         $listener = new TestStatusListener($publishers, $this->seleniumAdapterMock);
 
-        $warningTestCase = new \PHPUnitFrameworkWarningTestCase('Warning');
+        $warningTestCase = new \PHPUnit_Framework_WarningTestCase('Warning');
 
         $listener->startTest($warningTestCase);
         $listener->endTest($warningTestCase, 1);
